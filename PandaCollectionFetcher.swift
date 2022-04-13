@@ -14,6 +14,11 @@ class PandaCollectionFetcher: ObservableObject {
     
     let urlString = "http://playgrounds-cdn.apple.com/assets/pandaData.json"
     
+    enum FetchError: Error {
+        case badRequest
+        case badJSON
+    }
+    
     @available(iOS 15.0, *)
         func fetchData() async
     throws {
