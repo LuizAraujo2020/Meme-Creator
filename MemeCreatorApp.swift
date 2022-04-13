@@ -1,3 +1,4 @@
+
 import SwiftUI
 
 @main
@@ -9,7 +10,9 @@ struct MemeCreatorApp: App {
             NavigationView {
                 MemeCreator()
                     .environmentObject(fetcher)
+
             }
+            .navigationViewStyle(.stack)
         }
     }
 }

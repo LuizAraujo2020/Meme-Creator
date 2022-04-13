@@ -5,7 +5,7 @@
 //  Created by Luiz Araujo on 13/04/22.
 //
 
-import Foundation
+import SwiftUI
 
 @MainActor
 class PandaCollectionFetcher: ObservableObject {
@@ -20,14 +20,14 @@ class PandaCollectionFetcher: ObservableObject {
     }
     
     @available(iOS 15.0, *)
-        func fetchData() async
-    throws {
+     func fetchData() async
+     throws  {
         guard let url = URL(string: urlString) else { return }
-        
-        let (data, response) = try await URLSession.shared.data(for: URLRequest(url: url))
 
+        let (data, response) = try await URLSession.shared.data(for: URLRequest(url: url))
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw FetchError.badRequest }
-    
+
         imageData = try JSONDecoder().decode(PandaCollection.self, from: data)
     }
+    
 }
