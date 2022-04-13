@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct MemeCreator: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
